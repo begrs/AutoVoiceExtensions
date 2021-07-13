@@ -16,7 +16,7 @@ export class Ave {
     constructor() {
         this.configProvider = new ConfigurationProvider();
         this.statusbar = this.createStatusBarIcon();
-        this.webEndpoint = new WebEndpoint("https://localhost:5000/ave-server/");
+        this.webEndpoint = new WebEndpoint("http://localhost:5000/ave-server/");
     }
 
     public onInitialize(context: vscode.ExtensionContext) {

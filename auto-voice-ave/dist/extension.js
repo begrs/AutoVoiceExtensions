@@ -20,7 +20,7 @@ class Ave {
         this.isStartup = true;
         this.configProvider = new configuration_provider_1.ConfigurationProvider();
         this.statusbar = this.createStatusBarIcon();
-        this.webEndpoint = new webEndpoint_1.WebEndpoint("https://localhost:5000/ave-server/");
+        this.webEndpoint = new webEndpoint_1.WebEndpoint("http://localhost:5000/ave-server/");
     }
     onInitialize(context) {
         this.listenMode = this.configProvider.defaultListen();
@@ -145,7 +145,6 @@ class WebEndpoint {
                 if (!this.guard(res)) {
                     return;
                 }
-                let text = res.text();
             });
         });
     }

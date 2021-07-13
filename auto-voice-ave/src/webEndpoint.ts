@@ -13,8 +13,6 @@ export class WebEndpoint {
         const url = this.baseurl + "listening/start";
         fetch(url).then(res => {
             if(!this.guard(res)){return;}
-
-            let text = res.text();
         });
     }
 
