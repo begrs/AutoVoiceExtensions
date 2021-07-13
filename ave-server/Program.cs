@@ -16,6 +16,7 @@ namespace ave_server
             CreateHostBuilder(args).Build().Run();
         }
 
+        // switch to OWIN self hostend?
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

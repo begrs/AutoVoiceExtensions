@@ -7,6 +7,12 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="System.Speech" Version="5.0.0" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <NullableContextOptions>enable</NullableContextOptions>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
 </Project>

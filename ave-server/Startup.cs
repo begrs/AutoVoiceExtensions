@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ave_server.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,8 @@ namespace ave_server
         {
 
             services.AddControllers();
+            services.AddTransient(typeof(Lazy<>), typeof(Lazier<>));
+            services.AddScoped<Voice>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ave-server", Version = "v1" });
@@ -54,6 +57,14 @@ namespace ave_server
             {
                 endpoints.MapControllers();
             });
+        }
+
+        internal class Lazier<T> : Lazy<T> where T : class
+        {
+            public Lazier(IServiceProvider provider)
+                : base(() => provider.GetRequiredService<T>())
+            {
+            }
         }
     }
 }
